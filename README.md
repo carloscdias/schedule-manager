@@ -1,2 +1,3 @@
 # schedule-manager
-UERJ Schedule Manager
+
+Project (working title): UERJ Schedule Manager
