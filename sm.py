@@ -17,7 +17,7 @@ def main():
 	# credito	- prioriza alocar as disciplinas que possuem o maior numero de creditos
 
 	print( 'Matricula:', args.matricula )
-	print( 'Modo de alocacao de disciplinas:', args.modo )
+	print( 'Modo de alocacao de disciplinas:', args.metodo )
 
 # End main
 
