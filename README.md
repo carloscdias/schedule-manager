@@ -4,7 +4,7 @@ UERJ Schedule Manager
 
 ## uso
 
-```python3 sm.py matricula'```
+```python3 sm.py matricula```
 
 ## formato da saída "matricula-codAlgoritmo-data.csv"
 
