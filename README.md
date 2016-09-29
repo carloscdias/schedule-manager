@@ -33,4 +33,4 @@ Com o código da disciplina ocupando as posições adequadas de acordo com o hor
 
 
 
-Contributors: Carlos Cardoso, Jhonatan Gomes, Rafael Firmino e Vitor Marchena
+Contributors: Carlos Cardoso, Jhonatan Gomes, Rafael Firmino e Vitor Marchena.
