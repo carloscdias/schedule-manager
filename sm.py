@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from argparse import ArgumentParser
+from smbase.aluno import Aluno
 
 # completo	- prioriza o maior numero de disciplinas que podem ser alocadas
 def metodo_completo():
@@ -33,9 +34,10 @@ def main():
 	parser.add_argument( '-m', '--metodo', default = opcoes_metodos[0], choices = opcoes_metodos, help = "Metodo de alocacao de disciplinas" )
 
 	args = parser.parse_args()
-
+	
 	print( 'Matricula:', args.matricula )
 	print( 'Modo de alocacao de disciplinas:', args.metodo )
+	print( Aluno( args.matricula ) )
 
 	# Executando funcao de alocacao
 	metodos[ args.metodo ]()

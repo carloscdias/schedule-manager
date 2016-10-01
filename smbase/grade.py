@@ -1,6 +1,6 @@
 # coding: utf-8
 
-import disciplina
+from .disciplina import Disciplina
 
 class Grade:
     """

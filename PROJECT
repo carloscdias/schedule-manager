@@ -1,7 +1,7 @@
 GUIA PARA IMPLEMENTAÇÃO DO PROJETO SCHEDULE MANAGER
 ---------------------------------------------------
 
-- Criar a função principal com a opção padrão de receber uma matrícula
+x Criar a função principal com a opção padrão de receber uma matrícula
 - Obter os dados de "Disciplinas a Cursar" da matrícula em https://www.alunoonline.uerj.br/requisicaoaluno/requisicao.php?requisicao=RequisitosACursar&matricula=XXXXXXXXXXXX armazenando-os localmente (ideia: bd local com sqlite)
 - Processar os dados e alocar horário para a matrícula utilizando algoritmo padrão de alocação de disciplina (alocação máxima para todos os horários disponíveis sem conflito de disciplinas)
 - Gerar saída no formato CSV com o nome no formato "matricula-codAlgoritmo-data.csv", alternativamente também exibir na tela em formato mais user-friendly
@@ -11,6 +11,6 @@ GUIA PARA IMPLEMENTAÇÃO DO PROJETO SCHEDULE MANAGER
 SUBTAREFAS
 ----------
 
-- Modificar a função principal para permitir opções de escolha de algoritmo a ser usado para alocação e formatos de saída do programa
+x Modificar a função principal para permitir opções de escolha de algoritmo a ser usado para alocação e formatos de saída do programa
 - Implementar diferentes algoritmos de alocação (por horário disponível, por prioridade de matérias, por número de créditos?)
 - Implementar diferentes tipos de saída (csv, html, jpeg?)

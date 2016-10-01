@@ -1,6 +1,6 @@
 # coding: utf-8
 
-import grade
+from .grade import Grade
 
 class Aluno:
     """
