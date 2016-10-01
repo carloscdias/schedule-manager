@@ -9,16 +9,23 @@ class Grade:
         Exemplo: ("seg", "m2") = "Calculo"
     """
 
-    def __init__(self, disciplinas):
+    def __init__(self, disciplinas = None):
         """Construtor
             Inicializa a grade de horários com uma lista de disciplinas
 
             Args:
-                disciplinas: Lista de disciplinas para montar a grade
+                disciplinas (opcional): Lista de disciplinas para montar a grade
         """
         self._grid = {}
-        for d in disciplinas:
-            self.add_disciplina(d)
+
+        for dia in [ 'seg', 'ter', 'qua', 'qui', 'sex', 'sab' ]:
+            for char_horario in 'mtn':
+                for numero_horario in range( 1, 7 ):
+                    self._grid[( dia, char_horario + str( numero_horario ) )] = ''
+
+        if disciplinas:
+            for d in disciplinas:
+                self.add_disciplina(d)
 
     def add_disciplina(self, disciplina):
         """Adiciona uma disciplina na grade
