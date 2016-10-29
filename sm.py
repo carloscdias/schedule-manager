@@ -32,6 +32,7 @@ def main():
 	
 	parser.add_argument( 'matricula', help = "Matricula do aluno" )
 	parser.add_argument( '-m', '--metodo', default = opcoes_metodos[0], choices = opcoes_metodos, help = "Metodo de alocacao de disciplinas" )
+	parser.add_argument('-o','--obrigatorio',type = string ,help = "Adicionar uma materia obrigatoriamente na grade")
 
 	args = parser.parse_args()
 	

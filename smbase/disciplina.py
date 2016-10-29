@@ -6,7 +6,7 @@ class Disciplina:
         Armazena os dados que serão inseridos nas posições da grade
     """
 
-    def __init__(self, nome, codigo, turma, horarios, creditos, professor, preferencial, tipo, pode_cursar):
+    def __init__(self, nome, codigo, turma, horarios, creditos, professor, preferencial, tipo, pode_cursar, trava_credito):
         """Construtor
 
         Args:
@@ -19,6 +19,7 @@ class Disciplina:
             preferencial: Bool que indica se a disciplina é preferencial para o aluno
             tipo: Obrigatória, eletiva definida ou eletiva restrita
             pode_cursar: Bool que indica se o aluno pode cursar a disciplina, ou seja, não há pré-requisitos pendentes
+            trava_credito: credito minimo necessario para cusar a disciplina
         """
         self._nome = nome
         self._codigo = codigo
@@ -29,6 +30,7 @@ class Disciplina:
         self._preferencial = preferencial
         self._tipo = tipo
         self._pode_cursar = pode_cursar
+        self._trava_credito = trava_credito
 
     def __str__(self):
         _str = "{} - {}\nHorários: {}".format(self._nome, self._codigo, self._horarios)
