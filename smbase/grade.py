@@ -34,5 +34,6 @@ class Grade:
             Args:
                 disciplina: uma disciplina
         """
-        for (dia, hr) in disciplina._horarios:
-            self._grid[(dia, hr)] = disciplina
+        for dia in disciplina._horarios:
+            for hr in disciplina._horarios[dia]:
+                self._grid[(dia, hr)] = disciplina
