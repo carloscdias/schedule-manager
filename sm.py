@@ -2,6 +2,8 @@
 
 from argparse import ArgumentParser
 from smbase.aluno import Aluno
+from smbase.grade import Grade
+import scraperdisciplina
 
 # completo	- prioriza o maior numero de disciplinas que podem ser alocadas
 def metodo_completo(matricula):
@@ -15,13 +17,21 @@ def metodo_continuo(matricula):
 def metodo_credito(matricula):
 	print( 'Executando o metodo de alocacao credito...' )
 
+def metodo_aleatorio(matricula, exclusas):
+	print( 'Executando o metodo de alocacao aleatorio...' )
+	disciplinas = scraperdisciplina.extrai_disciplinas(matricula, exclusas)
+
+	grade = Grade(disciplinas, 'aleatorio')
+	print(grade)
+
 # Programa para montar a grade de horarios de disciplinas para um aluno da UERJ atraves de sua matricula de acordo com o metodo de alocacao escolhido
 def main():
 	# Dicionario de mapeamento dos metodos de alocacao disponiveis
 	metodos = {
 		'completo': metodo_completo,
 		'continuo': metodo_continuo,
-		'credito' : metodo_credito
+		'credito' : metodo_credito,
+		'aleatorio': metodo_aleatorio
 	}
 
 	# Nomes dos metodos
@@ -42,7 +52,7 @@ def main():
 	print( Aluno( args.matricula ) )
 
 	# Executando funcao de alocacao
-	metodos[ args.metodo ](args.matricula)
+	metodos[ args.metodo ](args.matricula, args.exclui.split(','))
 
 # End main
 
