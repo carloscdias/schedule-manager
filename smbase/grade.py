@@ -18,8 +18,8 @@ class Grade:
         """
         self._grid = {}
 
-        for dia in [ 'seg', 'ter', 'qua', 'qui', 'sex', 'sab' ]:
-            for char_horario in 'mtn':
+        for dia in [ 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB' ]:
+            for char_horario in 'MTN':
                 for numero_horario in range( 1, 7 ):
                     self._grid[( dia, char_horario + str( numero_horario ) )] = ''
 
