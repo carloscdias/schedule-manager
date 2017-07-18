@@ -4,7 +4,14 @@ UERJ Schedule Manager
 
 ## uso
 
-```python3 sm.py matricula```
+```
+python3 sm.py matricula -m metodo -o obrigatorias -e excluidas
+```
+Obrigatrórias e excluídas são parâmetros opcionais e devem seguir o padrão separado por vírgula como no exemplo abaixo.
+```
+python3 sm.py matricula -m aleatorio -e "Equações Diferenciais II,Estágio Supervisionado"
+```
+Executa o programa com o método aleatório desconsiderando as disciplinas Equações Diferenciais II e Estágio Supervisionado.
 
 ## formato da saída "matricula-codAlgoritmo-data.csv"
 
