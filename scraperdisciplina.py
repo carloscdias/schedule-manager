@@ -53,8 +53,9 @@ def extrai_disciplinas(matricula):
 			preferencial = extrai_preferencial(codigo, matricula)
 			tipo = ""
 			pode_cursar = ""
+			trava_credito = ""
 			# adiciona a nova disciplina a lista de disciplinas que ainda devem ser cursadas
-			disciplinas.append( Disciplina(nome, codigo, turma, horarios, creditos, docentes, preferencial, tipo, pode_cursar) )
+			disciplinas.append( Disciplina(nome, codigo, turma, horarios, creditos, docentes, preferencial, tipo, pode_cursar, trava_credito) )
 
 	return disciplinas
 
