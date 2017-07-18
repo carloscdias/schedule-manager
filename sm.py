@@ -4,15 +4,15 @@ from argparse import ArgumentParser
 from smbase.aluno import Aluno
 
 # completo	- prioriza o maior numero de disciplinas que podem ser alocadas
-def metodo_completo():
+def metodo_completo(matricula):
 	print( 'Executando o metodo de alocacao completo...' )
 
 # continuo	- prioriza o maior numero de disciplinas que podem ser alocadas sem que haja tempos livres na grade
-def metodo_continuo():
+def metodo_continuo(matricula):
 	print( 'Executando o metodo de alocacao continuo...' )
 
 # credito	- prioriza alocar as disciplinas que possuem o maior numero de creditos
-def metodo_credito():
+def metodo_credito(matricula):
 	print( 'Executando o metodo de alocacao credito...' )
 
 # Programa para montar a grade de horarios de disciplinas para um aluno da UERJ atraves de sua matricula de acordo com o metodo de alocacao escolhido
@@ -29,20 +29,20 @@ def main():
 
 	# Parser de argumentos de linha de comando
 	parser = ArgumentParser( description = "Monta a grade de horarios de disciplinas para um aluno da UERJ atraves de sua matricula de acordo com o metodo de alocacao escolhido" )
-	
+
 	parser.add_argument( 'matricula', help = "Matricula do aluno" )
 	parser.add_argument( '-m', '--metodo', default = opcoes_metodos[0], choices = opcoes_metodos, help = "Metodo de alocacao de disciplinas" )
 	parser.add_argument( '-o','--obrigatorio', help = "Adicionar uma materia obrigatoriamente na grade")
 	parser.add_argument( '-e', '--exclui', help = "Exclui materias das opcoes")
 
 	args = parser.parse_args()
-	
+
 	print( 'Matricula:', args.matricula )
 	print( 'Modo de alocacao de disciplinas:', args.metodo )
 	print( Aluno( args.matricula ) )
 
 	# Executando funcao de alocacao
-	metodos[ args.metodo ]()
+	metodos[ args.metodo ](args.matricula)
 
 # End main
 
