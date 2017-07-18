@@ -23,7 +23,7 @@ def metodo_aleatorio(matricula, exclusas):
 
 	grade = Grade(disciplinas, 'aleatorio')
 	print(grade)
-	grade.exportar_para_arquivo('grade-aleatoria')
+	grade.exportar_para_arquivo('{}-gradeAleatoria.csv'.format(matricula))
 
 # Programa para montar a grade de horarios de disciplinas para um aluno da UERJ atraves de sua matricula de acordo com o metodo de alocacao escolhido
 def main():
