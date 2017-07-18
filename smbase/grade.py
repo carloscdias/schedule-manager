@@ -33,6 +33,16 @@ class Grade:
             elif metodo == 'continuo':
                 self.monta_grade_metodo_continuo(disciplinas)
 
+    def __str__(self):
+        _str = ""
+        # _str = "{} - {}\nHorários: {}".format(self._nome, self._codigo, self._horarios)
+        for dia in [ 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB' ]:
+            for char_horario in 'MTN':
+                for numero_horario in range( 1, 7 ):
+                    if self._grid[(dia, char_horario + str(numero_horario))] != '':
+                        _str += "{} - {}: {}\n".format(dia, char_horario + str(numero_horario), self._grid[(dia, char_horario + str(numero_horario))]._nome)
+        return _str
+
     def monta_grade_metodo_completo(self, disciplinas):
         pass
 
