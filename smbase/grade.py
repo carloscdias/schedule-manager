@@ -74,3 +74,18 @@ class Grade:
         for dia in disciplina._horarios:
             for hr in disciplina._horarios[dia]:
                 self._grid[(dia, hr)] = disciplina
+
+    def exportar_para_arquivo(self, name):
+        with open(name, "w") as grade:
+            for dia in [ '', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB' ]:
+                grade.write("{};".format(dia))
+            grade.write('\n')
+            for char_horario in 'MTN':
+                for numero_horario in range( 1, 7 ):
+                    grade.write("{};".format(char_horario + str(numero_horario)))
+                    for dia in [ 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB' ]:
+                        if self._grid[(dia, char_horario + str(numero_horario))] != '':
+                            grade.write("{};".format(self._grid[(dia, char_horario + str(numero_horario))]._nome))
+                        else:
+                            grade.write(" ;")
+                    grade.write('\n')
