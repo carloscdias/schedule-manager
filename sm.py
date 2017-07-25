@@ -7,55 +7,58 @@ import scraperdisciplina
 
 # completo	- prioriza o maior numero de disciplinas que podem ser alocadas
 def metodo_completo(matricula):
-	print( 'Executando o metodo de alocacao completo...' )
+    print( 'Executando o metodo de alocacao completo...' )
 
 # continuo	- prioriza o maior numero de disciplinas que podem ser alocadas sem que haja tempos livres na grade
 def metodo_continuo(matricula):
-	print( 'Executando o metodo de alocacao continuo...' )
+    print( 'Executando o metodo de alocacao continuo...' )
 
 # credito	- prioriza alocar as disciplinas que possuem o maior numero de creditos
 def metodo_credito(matricula):
-	print( 'Executando o metodo de alocacao credito...' )
+    print( 'Executando o metodo de alocacao credito...' )
 
 def metodo_aleatorio(matricula, exclusas):
-	print( 'Executando o metodo de alocacao aleatorio...' )
-	disciplinas = scraperdisciplina.extrai_disciplinas(matricula, exclusas)
+    print( 'Executando o metodo de alocacao aleatorio...' )
+    disciplinas = scraperdisciplina.extrai_disciplinas(matricula, exclusas)
 
-	grade = Grade(disciplinas, 'aleatorio')
-	print(grade)
-	grade.exportar_para_arquivo('{}-gradeAleatoria.csv'.format(matricula))
+    grade = Grade(disciplinas, 'aleatorio')
+    print(grade)
+    grade.exportar_para_arquivo('{}-gradeAleatoria.csv'.format(matricula))
 
 # Programa para montar a grade de horarios de disciplinas para um aluno da UERJ atraves de sua matricula de acordo com o metodo de alocacao escolhido
 def main():
-	# Dicionario de mapeamento dos metodos de alocacao disponiveis
-	metodos = {
-		'completo': metodo_completo,
-		'continuo': metodo_continuo,
-		'credito' : metodo_credito,
-		'aleatorio': metodo_aleatorio
-	}
+    # Dicionario de mapeamento dos metodos de alocacao disponiveis
+    metodos = {
+        'completo': metodo_completo,
+        'continuo': metodo_continuo,
+        'credito' : metodo_credito,
+        'aleatorio': metodo_aleatorio
+    }
 
-	# Nomes dos metodos
-	opcoes_metodos = list( metodos.keys() )
+    # Nomes dos metodos
+    opcoes_metodos = list( metodos.keys() )
 
-	# Parser de argumentos de linha de comando
-	parser = ArgumentParser( description = "Monta a grade de horarios de disciplinas para um aluno da UERJ atraves de sua matricula de acordo com o metodo de alocacao escolhido" )
+    # Parser de argumentos de linha de comando
+    parser = ArgumentParser( description = "Monta a grade de horarios de disciplinas para um aluno da UERJ atraves de sua matricula de acordo com o metodo de alocacao escolhido" )
 
-	parser.add_argument( 'matricula', help = "Matricula do aluno" )
-	parser.add_argument( '-m', '--metodo', default = opcoes_metodos[0], choices = opcoes_metodos, help = "Metodo de alocacao de disciplinas" )
-	parser.add_argument( '-o','--obrigatorio', help = "Adicionar uma materia obrigatoriamente na grade")
-	parser.add_argument( '-e', '--exclui', help = "Exclui materias das opcoes")
+    parser.add_argument( 'matricula', help = "Matricula do aluno" )
+    parser.add_argument( '-m', '--metodo', default = opcoes_metodos[0], choices = opcoes_metodos, help = "Metodo de alocacao de disciplinas" )
+    parser.add_argument( '-o','--obrigatorio', help = "Adicionar uma materia obrigatoriamente na grade")
+    parser.add_argument( '-e', '--exclui', help = "Exclui materias das opcoes")
 
-	args = parser.parse_args()
+    args = parser.parse_args()
 
-	print( 'Matricula:', args.matricula )
-	print( 'Modo de alocacao de disciplinas:', args.metodo )
-	print( Aluno( args.matricula ) )
+    print( 'Matricula:', args.matricula )
+    print( 'Modo de alocacao de disciplinas:', args.metodo )
+    print( Aluno( args.matricula ) )
 
-	# Executando funcao de alocacao
-	metodos[ args.metodo ](args.matricula, args.exclui.split(','))
+    # Executando funcao de alocacao
+    if args.metodo == 'aleatorio':
+        metodos[ args.metodo ](args.matricula, args.exclui.split(',') if args.exclui else None)
+    else:
+        metodos[ args.metodo ](args.matricula)
 
 # End main
 
 if __name__ == '__main__':
-	main()
+    main()

@@ -27,7 +27,7 @@ Paginas no sistema na qual os dados estao localizados:
 . pode_cursar -> RequisitosACursar e DadosDisciplina
 """
 
-def extrai_disciplinas(matricula, exclusas):
+def extrai_disciplinas(matricula, exclusas = None):
 	"""
 		Função que retorna todos as disciplinas disponiveis na pagina RequisitosACursar de um aluno.
 	"""
@@ -55,7 +55,7 @@ def extrai_disciplinas(matricula, exclusas):
 			pode_cursar = ""
 			trava_credito = ""
 			# adiciona a nova disciplina a lista de disciplinas que ainda devem ser cursadas
-			if (nome not in exclusas):
+			if (exclusas and nome not in exclusas):
 				disciplinas.append( Disciplina(nome, codigo, turma, horarios, creditos, docentes, preferencial, tipo, pode_cursar, trava_credito) )
 
 	return disciplinas
